@@ -1,0 +1,12 @@
+.idea/
+
+target/
+log/
+
+
+#mac ignore file for framework
+*.iml
+.DS_Store
+
+
+.profile
