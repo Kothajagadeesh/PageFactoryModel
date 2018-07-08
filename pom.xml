@@ -38,13 +38,26 @@
                     <target>${apache-maven}</target>
                 </configuration>
             </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${surefire.version}</version>
                 <configuration>
                     <suiteXmlFiles>
                         <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
-
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
@@ -162,17 +175,17 @@
         </profile>
 
         <profile>
-            <id>prod-safari-local</id>
+            <id>prod-headless-local</id>
             <activation>
                 <property>
                     <name>env</name>
-                    <value>prod-safari-local</value>
+                    <value>prod-headless-local</value>
                 </property>
             </activation>
             <properties>
                 <env.profile>prod</env.profile>
                 <env.execType>local</env.execType>
-                <env.browser>safari</env.browser>
+                <env.browser>headless</env.browser>
                 <env.browserVersion>64</env.browserVersion>
                 <env.platformVersion>10.11.6</env.platformVersion>
             </properties>

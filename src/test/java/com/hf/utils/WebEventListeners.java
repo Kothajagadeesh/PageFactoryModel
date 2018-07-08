@@ -32,7 +32,7 @@ public class WebEventListeners extends AbstractWebDriverEventListener {
      * @param driver  instance
      */
     public void beforeFindBy(By by, WebElement element, WebDriver driver) {
-        //logger.info("Before Finding WebElement " + element);
+        logger.info("Before Finding WebElement " );
     }
 
     /**
@@ -42,6 +42,6 @@ public class WebEventListeners extends AbstractWebDriverEventListener {
      * @param driver  instance
      */
     public void beforeClickOn(WebElement element, WebDriver driver) {
-        logger.info("Before Clicking on WebElement " + element);
+        logger.info("Before Clicking on WebElement ");
     }
 }

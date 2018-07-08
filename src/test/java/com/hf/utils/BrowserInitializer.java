@@ -1,6 +1,9 @@
 package com.hf.utils;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -11,6 +14,8 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
@@ -22,7 +27,6 @@ public class BrowserInitializer {
     Logger logger = Logger.getLogger(BrowserInitializer.class);
     EventFiringWebDriver firingWebDriver;
     WebEventListeners webListeners;
-    TestNgListeners testListeners;
 
     /**
      * Sets the driver
@@ -122,5 +126,21 @@ public class BrowserInitializer {
         setDriver(driver);
         setUpEventDriver();
         setTimeouts(driver);
+    }
+
+    /**
+     * taking screenshot
+     * @param methodName name for screenshot
+     */
+    public void takeScreenShot(String methodName) {
+        //get the driver
+        File scrFile = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
+        //The below method will save the screen shot in d drive with test method name
+        try {
+            FileUtils.copyFile(scrFile, new File(projectPath + "/screenshots " + methodName + ".png"));
+            System.out.println("***Placed screen shot in " + projectPath + "/screenshots " + " ***");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
