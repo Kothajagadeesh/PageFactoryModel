@@ -1,13 +1,22 @@
 package com.hf.utils;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-public class TestNgListeners implements ITestListener {
+import java.io.File;
+import java.io.IOException;
 
+public class TestNgListeners implements ITestListener {
+    WebDriver driver;
+    BrowserInitializer b = new BrowserInitializer();
     Logger logger = Logger.getLogger(TestNgListeners.class);
+    String path = BrowserInitializer.projectPath + "/screeshots";
 
     /**
      * Invoked each time before a test will be invoked.
@@ -28,8 +37,22 @@ public class TestNgListeners implements ITestListener {
      * @see ITestResult#SUCCESS
      */
     public void onTestSuccess(ITestResult result) {
-
         logger.info("After Test success:  " + result.getMethod());
+        String methodName = result.getMethod().toString().trim();
+        //takeScreenShot(methodName);
+    }
+
+    public void takeScreenShot(String methodName) {
+        //get the driver
+        driver = b.getDriver();
+        File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        //The below method will save the screen shot in d drive with test method name
+        try {
+            FileUtils.copyFile(scrFile, new File(path + methodName + ".png"));
+            System.out.println("***Placed screen shot in " + path + " ***");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -40,6 +63,8 @@ public class TestNgListeners implements ITestListener {
      */
     public void onTestFailure(ITestResult result) {
         logger.info("Test:  " + result.getMethod() + " - Failed");
+
+
     }
 
     /**
