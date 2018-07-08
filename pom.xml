@@ -12,7 +12,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <selenium.version>3.11.0</selenium.version>
-        <testng.version>6.13</testng.version>
+        <testng.version>6.14.2</testng.version>
         <maven.compiler.version>3.6.1</maven.compiler.version>
         <apache-maven>1.9</apache-maven>
         <surefire.version>2.19.1</surefire.version>
@@ -127,23 +127,6 @@
     </dependencies>
 
     <profiles>
-        <profile>
-            <id>prod-chrome-local</id>
-            <activation>
-                <property>
-                    <name>env</name>
-                    <value>prod-chrome-local</value>
-                </property>
-            </activation>
-            <properties>
-                <env.profile>prod</env.profile>
-                <env.execType>local</env.execType>
-                <env.browser>chrome</env.browser>
-                <env.browserVersion>64</env.browserVersion>
-                <env.platformVersion>10</env.platformVersion>
-            </properties>
-        </profile>
-
         <profile>
             <id>prod-firefox-local</id>
             <activation>
