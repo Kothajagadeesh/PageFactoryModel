@@ -22,6 +22,7 @@ public class WomensActionsPage extends WomensActionsRepo {
 
     public void openproductByName(ProductDetailsPageActions productDetailsPageActions, String name) {
         click(dresslink(name));
-        waitUntilElementDisplayed(productDetailsPageActions.addTocardBtn);
+        click(dresslink(name));
+        waitUntilElementDisplayed(productDetailsPageActions.addTocartBtn);
     }
 }

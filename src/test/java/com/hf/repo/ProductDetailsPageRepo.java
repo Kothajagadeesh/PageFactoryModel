@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 public class ProductDetailsPageRepo extends SafeElementActions {
 
     @FindBy(name = "Submit")
-    public WebElement addTocardBtn;
+    public WebElement addTocartBtn;
 
     @FindBy(css = "a[title='Proceed to checkout'] span")
     public WebElement proceddCheckout;

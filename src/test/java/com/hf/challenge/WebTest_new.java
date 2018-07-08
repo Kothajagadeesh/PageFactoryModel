@@ -39,9 +39,9 @@ public class WebTest_new extends PageInitilizer {
 
         Assert.assertTrue(myacc, "myaccount page is displayed");
 
-        boolean usernmae = myAccountPageActions.validateUserName(fileUtils.getValue("lName"), fileUtils.getValue("fName"));
-        Assert.assertTrue(usernmae, "Verify username is displayed correctly ");
-        Assert.assertTrue(myAccountPageActions.validateMyAccountInfo(), "verify Myaccount info text");
+        boolean username = myAccountPageActions.validateUserName(fileUtils.getValue("lName"), fileUtils.getValue("fName"));
+        Assert.assertTrue(username, "Verify username is displayed correctly ");
+        Assert.assertTrue(myAccountPageActions.validateMyAccountInfo(), "Verify My Account info text");
         Assert.assertTrue(myAccountPageActions.isDisplayed(myAccountPageActions.logoutLink), "Verify logout link");
         Assert.assertTrue(driver.getCurrentUrl().contains(fileUtils.getValue("myaccountURL")), "verify current url");
     }
@@ -52,9 +52,10 @@ public class WebTest_new extends PageInitilizer {
         boolean loginSuccess = signinPageActions.loginAsRegUser(myAccountPageActions, fileUtils.getValue("existingEmail"), fileUtils.getValue("password"));
         Assert.assertTrue(loginSuccess, "Login is successful");
 
-        boolean usernmae = myAccountPageActions.validateUserName(fileUtils.getValue("lName"), fileUtils.getValue("fName"));
-        Assert.assertTrue(usernmae, "Verify username is displayed correctly ");
+        boolean username = myAccountPageActions.validateUserName(fileUtils.getValue("existinguserLName"), fileUtils.getValue("existinguserFName"));
+        Assert.assertTrue(username, "Verify username is displayed correctly ");
         Assert.assertTrue(myAccountPageActions.isDisplayed(myAccountPageActions.logoutLink), "Verify logout link");
+        Assert.assertTrue(myAccountPageActions.validateMyAccountInfo(), "Verify My Account info text");
         Assert.assertTrue(driver.getCurrentUrl().contains(fileUtils.getValue("myaccountURL")), "verify current url");
     }
 
@@ -62,14 +63,16 @@ public class WebTest_new extends PageInitilizer {
     public void checkout() {
         homePageActions.clickSignInBtn(signinPageActions);
         signinPageActions.loginAsRegUser(myAccountPageActions, fileUtils.getValue("existingEmail"), fileUtils.getValue("password"));
+        womensActionsPage.navigateToWomensSection();
         womensActionsPage.openproductByName(productDetailsPageActions, fileUtils.getValue("dressName"));
         productDetailsPageActions.checkoutProduct(checkoutSummaryPageActions);
         checkoutSummaryPageActions.clickProceedCheckout(checkoutAddressPageActions);
         checkoutAddressPageActions.clickProceedChekout(checkoutShippingPageActions);
         checkoutShippingPageActions.clickProceedCheckout(checkoutPaymentPageActions);
         checkoutPaymentPageActions.selectpayByWire(orderConfirmationPageActions);
+
         Assert.assertTrue(orderConfirmationPageActions.validateOrderConfirmationHeader(), "Validate Order Confirmation Header");
-        Assert.assertTrue(orderConfirmationPageActions.verofyCurrentStepIsLate(), "Validate Current Step is last step");
+        Assert.assertTrue(orderConfirmationPageActions.verifyCurrentStepIsLate(), "Validate Current Step is last step");
         Assert.assertTrue(orderConfirmationPageActions.orderConfirmationTitle(), "Validate Order Confirmation Title");
         Assert.assertTrue(driver.getCurrentUrl().contains(fileUtils.getValue("orderconfirmationurl")), "verify current url");
 

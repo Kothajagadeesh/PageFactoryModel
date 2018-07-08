@@ -246,7 +246,7 @@ public class SafeElementActions extends BrowserInitializer {
     }
 
     /**
-     * Selects drop-down by visisble text
+     * Selects drop-down by visible text
      *
      * @param selectElement to perform action
      * @param dropDownText  css value
@@ -256,4 +256,11 @@ public class SafeElementActions extends BrowserInitializer {
         dropdown.selectByValue(dropDownText);
     }
 
+    public void staticWait() {
+        try {
+            Thread.sleep(5000);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

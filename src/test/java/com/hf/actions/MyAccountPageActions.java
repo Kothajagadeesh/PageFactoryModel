@@ -36,6 +36,6 @@ public class MyAccountPageActions extends MyAccountPageRepo {
      */
     public boolean validateMyAccountInfo() {
         String s = "Welcome to your account.";
-        return getText(accountInfo).equalsIgnoreCase(s);
+        return getText(accountInfo).contains(s);
     }
 }

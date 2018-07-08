@@ -17,7 +17,8 @@ public class ProductDetailsPageActions extends ProductDetailsPageRepo {
     }
 
     public void checkoutProduct(Checkout_SummaryPageActions checkout_summaryPageActions) {
-        click(addTocardBtn);
+        click(addTocartBtn);
+        staticWait();
         click(proceddCheckout);
         waitUntilElementDisplayed(checkout_summaryPageActions.proceedCheckout);
     }

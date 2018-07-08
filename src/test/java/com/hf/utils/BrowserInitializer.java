@@ -55,7 +55,7 @@ public class BrowserInitializer {
      * @param driver instance
      */
     public void setTimeouts(WebDriver driver) {
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        //driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.manage().timeouts().pageLoadTimeout(120, TimeUnit.SECONDS);
     }
 

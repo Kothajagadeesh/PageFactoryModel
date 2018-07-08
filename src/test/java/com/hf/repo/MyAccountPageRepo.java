@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class MyAccountPageRepo extends SafeElementActions {
 
-    @FindBy(css = "my-account")
+    @FindBy(css = ".my-account")
     public WebElement myaccountheader;
 
     @FindBy(css = ".account")

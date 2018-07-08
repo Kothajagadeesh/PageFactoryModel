@@ -6,6 +6,6 @@ import org.openqa.selenium.support.FindBy;
 
 public class Checkout_SummaryPageRepo extends SafeElementActions {
 
-    @FindBy(xpath="    @FindBy(xpath=//*[contains(@class,'cart_navigation')]/a[@title='Proceed to checkout'])\n")
+    @FindBy(xpath = "//*[contains(@class,'cart_navigation')]/a[@title='Proceed to checkout']")
     public WebElement proceedCheckout;
 }

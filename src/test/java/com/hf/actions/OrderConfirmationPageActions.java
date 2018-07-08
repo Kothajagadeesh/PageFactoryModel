@@ -31,17 +31,17 @@ public class OrderConfirmationPageActions extends OrderConfirmationPageRepo {
      *
      * @return
      */
-    public boolean verofyCurrentStepIsLate() {
+    public boolean verifyCurrentStepIsLate() {
         return isDisplayed(laststep);
     }
 
     /**
-     * validate orderConfirmationTilte
+     * validate orderConfirmationTitle
      *
      * @return
      */
     public boolean orderConfirmationTitle() {
-        String expected = "controller=order-confirmation";
-        return getText(orderConfirmationTitle).equals(expected);
+        String expected = "Your order on My Store is complete.";
+        return getText(orderConfirmationTitle).contains(expected);
     }
 }

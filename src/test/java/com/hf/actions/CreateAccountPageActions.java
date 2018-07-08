@@ -59,7 +59,7 @@ public class CreateAccountPageActions extends CreateAccountPageRepo {
         clearAndFillText(homePhoneFld, homePhone);
         clearAndFillText(mobileNoFld, mobileNo);
         clearAndFillText(aliasFld, alias);
-        submit(submitBtn);
+        click(submitBtn);
         return waitUntilElementDisplayed(myAccountPageActions.myaccountheader, 60);
     }
 
