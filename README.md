@@ -10,26 +10,24 @@
 - Application -> [Automation Practice](http://automationpractice.com/index.php)
 
 **How to Execute**
-Download the Framework from GIT
-Intellij -> View Tool Windows -> Maven -> Select Desired profile (prod-local-chrome)
-prod -> Environment (stag, qa, prod)
-local -> Execution type (local, grid, saucelabs, browser stack)
-chrome -> Browser type
+1. Download the Framework from GIT
+2. Intellij -> View Tool Windows -> Maven -> Select Desired profile (prod-local-chrome)
+3. prod -> Environment (stag, qa, prod)
+4. local -> Execution type (local, grid, saucelabs, browser stack)
+5. chrome -> Browser type
 
 We can update the profile length with as many values as we can
 
 *Terminal*
-install mvn from Terminal
-navigate to project path from Terminal
-Type "mvn clean install -Denv=prod-chrome-local"  (without quotes) and press enter
+- install mvn from Terminal
+- navigate to project path from Terminal
+- Type "mvn clean install -Denv=prod-chrome-local"  (without quotes) and press enter
 
-** Reports **
+**Reports**
+- Reports will be generate under test-output folder after execution
 
-Reports will be generate under test-output folder after execution
-
-** Doc **
+**Doc**
 Can view the project doc under doc -> index.html
 
-** Tests **
-
-Go to TESTCASES.MD
+**Tests**
+Read TESTCASES.MD
