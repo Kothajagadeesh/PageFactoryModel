@@ -1,38 +1,35 @@
-# Home test task
+# README
 
-**What do you already have?**
------
- * web application with url http://automationpractice.com/index.php;
- * 3 [test cases](TESTCASES.md);
- * 3 automated tests.
- 
-We give the initial version of tests in order to save your time on extracting locators. 
+**Tools used**
 
-**What do you need to do?**
-----
-You need to improve given automated tests as much as you can by designing your own solution to develop such kinds of tests for similar applications.
-Feel free to replace any tool we used in initial version of tests(maven, junit) or add other ones, if you need.
+- TestNg -> Unit Testing Framework
+- Maven -> Build Tool
+- ReportNG -> For HTML Report Generations
+- Log4j -> logging for Java
+- Git -> Version control
+- Application -> [Automation Practice](http://automationpractice.com/index.php)
 
-Your solution can include:
-* logging;
-* taking screenshot on failed tests;
-* generation human readable report;
-* generating random values for insignificant test data, for example, for new user;
-* WebDriver factory;
-* encapsulation layers like test data, logic of tests, actions on web pages and so on;
-* configurator:
-  * run tests in parallel mode;
-  * ability to run tests for different browsers/OS by configuring;
-  * ability to run tests for different environments(urls) by configuring/by command-line.
-* reading test data from file, for example, the name of dress, size and color in the checkout test.
+**How to Execute**
+Download the Framework from GIT
+Intellij -> View Tool Windows -> Maven -> Select Desired profile (prod-local-chrome)
+prod -> Environment (stag, qa, prod)
+local -> Execution type (local, grid, saucelabs, browser stack)
+chrome -> Browser type
 
-If you would like to impress us cover as much point as you can!
+We can update the profile length with as many values as we can
 
-**Evaluation Criteria**
--------------------
-1. The improvements are done in efficient and effective manner.
-2. The improved tests pass stably and follow described cases.
-3. The solution is well and logically organised.
-4. Tests execution does not take more time than initial version.
-5. The code is documented and is easy to-follow.
-6. The application is supplied with all the information required for us to run and validate it as well as a description and purpose of used additional libraries.
+*Terminal*
+install mvn from Terminal
+navigate to project path from Terminal
+Type "mvn clean install -Denv=prod-chrome-local"  (without quotes) and press enter
+
+** Reports **
+
+Reports will be generate under test-output folder after execution
+
+** Doc **
+Can view the project doc under doc -> index.html
+
+** Tests **
+
+Go to TESTCASES.MD
